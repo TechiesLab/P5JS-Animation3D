@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation 3D</title>
+  <link rel="shortcut icon" type="image/png" href="images/ico_full.png"/>
+  <link rel="stylesheet" href="stylesheet/prism.css">
+  <link rel="stylesheet" href="stylesheet/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- Introduction -->
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://besthqwallpapers.com/Uploads/25-4-2019/88786/thumb2-earth-at-night-from-space-europe-city-lights-continent-satellite-view.jpg');">
+    <div id="class-languages">
+      <i class="fab fa-html5 mr-1" style="color: #f84820"></i>
+      <i class="fab fa-css3-alt mr-1" style="color: #1970b5"></i>
+      <i class="fab fa-js-square mr-1" style="color: #FFE01B"></i>
+    </div>
+    <div class="container">
+      <div class="main">
+        <img src="images/logo.png" alt="">
+        <div class="class-title">
+          <h1>Animation 3D</h1>
+        </div>
+      </div>
+      <p>Salut! On va continuer nos magnifiques animations en utilisant WEBGL aujourd'hui!</p>
+      <a class="btn btn-primary tl-button" href="#challenge" role="button">Commencer !</a>
+    </div>
+  </div>
+
+  <div class="container" id="challenge">
+
+    <div class="accordion" id="accordionExample">
+
+      <!-- Etape 1 -->
+      <div class="card">
+        <div class="card-header" id="heading1">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+              Etape 1 - Défis à compléter avant celui-ci
+            </button>
+          </h2>
+        </div>
+        <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Avant de t'attaquer à ce défi, on te conseille de compléter les défis suivants:</p>
+            <ol>
+              <li><a href="https://techieslab.github.io/year-prediction_instructions/" target="_blank">En 2020 je serai...</a></li>
+              <li><a href="https://techieslab.github.io/rainbow_instructions/" target="_blank">Ça va bien aller</a></li>
+              <li><a href="https://techieslab.github.io/soap-bubble-adv_instructions/" target="_blank">Bulles de savant</a></li>
+              <li><a href="ttps://techieslab.github.io/10Print/" target="_blank">10 Print</a></li>
+              <li><a href="ttps://techieslab.github.io/WEBGL/" target="_blank">WEBGL</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etape 2 -->
+      <div class="card">
+        <div class="card-header" id="heading2">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+              Etape 2 - Une boîte qui oscille
+            </button>
+          </h2>
+        </div>
+        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>On a appris la fois passée ce qu'était WEBGL. Aujourd'hui, on  va faire une animation très satisfaisante à regarder! Tu peux déjà visualiser cette animation <a href="P5JS/index.html">ici</a> ;-)</p>
+
+            <p>Pour commencer, on doit adapter notre <code>createCanvcas()</code> en ajoutant <code>WEBGL</code> en tant que 3e paramètre. Ceci rajoute une "troisième dimension".</p>
+
+            <p>Ensuite on va créer une animation d'un rectangle dont la hauteur change constamment. Pour créer notre grande animation, on va simplement devoir repeter cette petite animation BEAUCOUP de fois.</p>
+
+            <p>Commence par dessiner un rectangle. Tu peux commencer par la faire 100x100x200. Utilise les fonctions <code>rotateX(), rotateY(), rotateZ()</code> avec des valeurs comme bons te sentent pour voir ce rectangle de coté.</p>
+
+            <p>Super! Il nous faut maintenant juste faire changer la hauteur de ce cube avec le temps. La fois passée, on a introduit une variable <code>hauteur</code> et une variable <code>changement</code> pour y arriver, mais cela n'est en fait pas optimal! Pour ce que soit plus facile, on doit reconnaître un certain mouvement.</p>
+
+            <p>La hauteur du rectangle doit augementer, puis diminuer, puis augementer, puis diminuer, etc. Si on dessine la <i>fonction</i> de la hauteur en fonction du temps, on aurait quelque chose du style:</p>
+
+            <img src="https://www.nullhardware.com/img/generic/sin-wave-000000.png" alt="Sinus Curve" style="width: 100%">
+
+            <p>Reconnais-tu cette fonction? Si tu n'es pas encore en 3e secondaire, tu peux directement passer à la réponse, mais si tu es en 3e secondaire tu as peut être déjà appris le nom de cette fonction de référence...</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep1a" role="button" aria-expanded="false" aria-controls="rep1a">Réponse</a></p>
+            <div class="collapse mb-3" id="rep1a">
+              <div class="card card-body">
+                <p>Cette fonction est la fonction "Sinus". C'est une fonction <i>périodique</i>, voulant dire qu'elle se répéte à l'infini. Elle va donc toujours monter, puis descendre, puis monter, etc, comme voulu!</p>
+
+                <p>Pour ceux que cela intéresse, un mouvement naturel comme celui de la fonction sinus s'appelle un mouvement <i>harmonique</i>.</p>
+
+                <p>Ne t'inquiètes pas si tu ne connais pas cette fonction! Il n'est pas super important de savoir ce qu'elle fait, juste sache qu'elle se repete à l'infini et qu'elle monte et qu'elle descend ;-)</p>
+              </div>
+            </div>
+
+            <p>Cette fonction prend des valeurs entre -1 et 1. Mais on aimerait que notre hauteur prenne des valeurs entre 0 et 200 (Par exemple). On doit donc un peu adapter la fonction.</p>
+
+            <p>La façon la plus simple de ce faire est de dire "On ajoute 1 à la fonction sinus (Elle va maintenant de 0 à 2), puis on multiplie tout par 100."</p>
+
+            <p>En p5.js, on peut utiliser la fonction sinus de la façon suivante:</p>
+
+            <pre><code class="language-js">
+              sin(...)
+            </code></pre>
+
+            <p>Ainsi, notre transformation va être écrite ainsi:</p>
+
+            <pre><code class="language-js">
+              ( sin(...) + 1 ) * 100
+            </code></pre>
+
+            <p>Reste à savoir ce qu'on peut mettre dans les <code>...</code>. As tu une idée?</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep1b" role="button" aria-expanded="false" aria-controls="rep1b">Réponse</a></p>
+            <div class="collapse mb-3" id="rep1b">
+              <div class="card card-body">
+                <p>On va utiliser le temps! En fait on veut juste une variable qui augement constamment et linéairement avec le temps, donc le temps soi même est un très bon choix!</p>
+              </div>
+            </div>
+
+            <p>Pour prendre le temps en p5.js, on utilise <code>millis()</code>. Comme son nom l'indique, il retourne le nombre de millisecondes depuis le début du code.</p>
+
+            <p>Essaie de remplacer les <code>...</code> par le nombre de millisecondes et remplace la hauteur de ton rectangle par l'équation d'avant. Est-ce que ça marche? Si la hauteur change trop vite, tu peux toujours diviser la hauteur par un certain nombre ;-) (Je te conseille de diviser par un nombre dans les alentours de 1000).</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep1c" role="button" aria-expanded="false" aria-controls="rep1c">Réponse</a></p>
+            <div class="collapse mb-3" id="rep1c">
+              <div class="card card-body">
+                <pre><code class="language-js">
+                  box(70, 70, (sin(millis() / 1000) + 1) * 100);
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etape 3 -->
+      <div class="card">
+        <div class="card-header" id="heading3">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+              Etape 3 - Deux boîtes qui oscillent
+            </button>
+          </h2>
+        </div>
+        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>On va maintenant faire un autre rectangle à côté de ce premier. Notre but final sera d'en avoir énormement, mais on va commencer par en faire 2.</p>
+
+            <p>Pour le moment, si tout va bien, ton code ressemble à quelque chose dans ce style:</p>
+
+            <pre><code class="language-js">
+              function setup() {
+                createCanvas(400, 400, WEBGL);
+              }
+              
+              function draw() {
+                background(220);
+                rotateX(20);
+                rotateY(10);
+                normalMaterial();
+                box(70, 70, (sin(millis() / 1000) + 1) * 100);
+              }
+            </code></pre>
+
+            <p>J'ai ajouté un <code>normalMaterial()</code> pour la couleur.</p>
+
+            <p>Notre but est d'ajouter un autre rectangle. Comment ferais-tu cela? À mon avis, on doit mettre un autre <code>box()</code> après celui qu'on a déjà, cela devrait dessiner 2 boîtes non?</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep2a" role="button" aria-expanded="false" aria-controls="rep2a">Réponse</a></p>
+            <div class="collapse mb-3" id="rep2a">
+              <div class="card card-body">
+                <p>Alors oui et non. Il faut en effet ajouter un deuxième <code>box()</code>, mais pas que. Il nous faut aussi dire au code de ne pas dessiner ce deuxième rectangle au dessus du premier! Pour ce faire, on peut simplement utiliser un <code>translate()</code>.</p>
+                <pre><code class="language-js">
+                  box(...);
+                  translate(100, 0);
+                  box(...);
+                </code></pre>
+              </div>
+            </div>
+
+            <p>On a maintenant 2 boîtes qui oscillent ensemble... Comment pourrait-on les faire osciller à différentes vitesses?</p>
+
+            <p>Il nous faut faire ce qu'on appelle en mathématiques un <i>déphasage</i>. Cela semble méchant comme mot, mais cela ne l'est vraiment pas. En fait, il nous faut simplement ajouter un nombre à l'argument du sinus!</p>
+
+            <p>Pour faire un déphasage, change la hauteur de la deuxième boîte en </p>
+
+            <pre><code class="language-js">
+              (sin(millis() / 1000 + 1) + 1) * 100
+            </code></pre>
+
+            <p>Tu vois comment les deux boîtes n'ont pas la même taille? Très satisfaisant non?</p>
+
+            <p>Essaie maintenant d'ajouter une troisième boîte! Je sais que tu peux y arriver!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etape 4 -->
+      <div class="card">
+        <div class="card-header" id="heading4">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+              Etape 4 - Une ligne de boîtes qui oscillent
+            </button>
+          </h2>
+        </div>
+        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>On sait maintenant comme faire 2 boîtes qui oscillent. Super, mais on est encore loin du nombre ésperé... Maintenant on va faire toute une ligne qui oscille!</p>
+
+            <p>Pour faire toute une ligne, on ne va pas juste copier/coller notre code 30 fois! On va utiliser une <b>boucle</b>!</p>
+
+            <p>Une boucle est un code qui ressemble au suivant:</p>
+
+            <pre><code class="language-js">
+              for(let l = 0; l < 100; l++) {
+                // Faire quelque chose
+              }
+            </code></pre>
+
+            <p>Ma boucle ici commence avec <code>l=0</code>, et continuera tant que <code>l<100</code>, et fait <code>l++</code> à chaque étape. Cette boucle va donc s'executer 100 fois!</p>
+
+            <p>Regardons un peu les nombres: On a un écran 400x400. En particulier, on a 400 en longeur. On ne veut pas faire des boîtes trop larges, 70 c'est beaucoup trop... 10 serait une meilleure taille! On ne veut pas trop coller nos boîtes au bord, donc on peut laisser 20 en espace de chaque côté. Ainsi, on a de la place pour (400-20-20)/10=36 boîtes.</p>
+
+            <p>Notre boucle doit donc dessiner 36 boîtes, donc elle doit tourner 36 fois. Comment fait-on une boucle qui tourne 36 fois?</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep3a" role="button" aria-expanded="false" aria-controls="rep3a">Réponse</a></p>
+            <div class="collapse mb-3" id="rep3a">
+              <div class="card card-body">
+                <p>En effet! On doit juste changer la <i>condition</i> de la boucle!</p>
+                <pre><code class="language-js">
+                  for(let l = 0; l < 36; l++) {
+                    // Faire quelque chose
+                  }
+                </code></pre>
+              </div>
+            </div>
+
+            <p>Super! On a maintenant une boucle qui se repete 36 fois... Mais que faut-il faire à l'intérieur? Il faut dessiner un rectangle à une nouvelle position à chaque fois! </p>
+
+            <p>Pour dessiner un rectangle qui oscille et qui a une taille 10x10, c'est super facile! On l'a déjà fait, je suis sûr que tu peux y arriver!</p>
+
+            <p>On a toujours le problème qu'on ne doit pas oublier de faire un <code>translate()</code> après avoir dessiné une boîte. Ici, on ne veut que bouger de 10 dans l'axe X, et pas besoin de bouger dans l'axe Y. Ca aussi tu sais comment le faire ;-)</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep3b" role="button" aria-expanded="false" aria-controls="rep3b">Réponse</a></p>
+            <div class="collapse mb-3" id="rep3b">
+              <div class="card card-body">
+                <p>Tu devrais arriver à un code environ comme celui ci:</p>
+                <pre><code class="language-js">
+                  for(let l = 0; l < 36; l++) {
+                    box(70, 70, (sin(millis() / 1000) + 1) * 100);
+                    translate(10, 0);
+                  }
+                </code></pre>
+              </div>
+            </div>
+
+            <p>Mais il y a deux problèmes avec ce code! Le premier est qu'on commence que à partir du centre... Pourquoi cela tu crois?</p>
+
+            <p>En effet! On doit se décaller vers la gauche au début du code pour commencer à placer nos boîtes de la gauche vers la droite! Pour ce faire, tu peux simplement faire un <code>translate()</code> avant la boucle, avec les paramètres corrects!</p>
+
+            <p>Un deuxième problème est que toutes les boîtes oscillent en même temps... On veut installer un <i>déphasage</i>! Heureuement, on peut se servir de la variable <code>l</code> dans la boucle pour installer ce déphasage.</p>
+
+            <p>Plutôt que d'ajouter 1 au nombre de millisecondes, ajoute la variable <code>l</code>. Si le déphasage te paraît trop grand, divise la variable <code>l</code> par un nombre adapté!</p>
+
+            <pre><code class="language-js">
+              box(70, 70, (sin(millis() / 1000 + l / 10) + 1) * 100);
+            </code></pre>
+
+            <p>On a maintenant une super jolie vague! Mais on peut ajouter encore plus de boîtes pour rendre l'animation encore plus satisfaisante!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etape 5 -->
+      <div class="card">
+        <div class="card-header" id="heading5">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+              Etape 5 - Un carré de boîtes qui oscillent
+            </button>
+          </h2>
+        </div>
+        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>On va maintenant faire plusieurs lignes qui oscillent pour former un carré qui oscille, comme montré dans l'animation de base.</p>  
+
+            <p>Comment ferais-tu pour dessiner plusieurs lignes? Tu pourras juste copier/coller le code pour une ligne, mais cela ne va pas pas marcher pour créer 36 lignes...</p>
+
+            <p>On va de nouveau utiliser une boucle <code>for</code>. Dans l'étape précedente, on a utilisé a boucle pour multiplier une boîte plusieurs fois pour créer une ligne, dans celle ci on va utiliser cette boucle pour créer plusieurs lignes pour créer un carré!</p>
+
+            <p>Tout d'abord, on doit déterminer combien de fois la boucle doit tourner. Comme on veut faire un carré, on veut surement faire 36 lignes (Le même nombre que le nombre de boîtes par ligne). Tu peux donc entourer tout ton code pour dessiner une ligne dans une boucle.</p>
+
+            <p>Tu dois utiliser un autre nom de variable pour cette boucle. Tu pourrais l'appeller <code>c</code> comme on parle ici du nombre de la Colonne qu'on dessine.</p>
+
+            <pre><code class="language-js">
+              for(let c = 0; c < 36; c++) {
+                // Code pour dessiner une ligne
+              }
+            </code></pre>
+
+            <p>Si tu fais tout bien, tu vois juste une ligne... Pourquoi?</p>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#hint5a" role="button" aria-expanded="false" aria-controls="hint5a">Réponse</a></p>
+            <div class="collapse mb-3" id="hint5a">
+              <div class="card card-body">
+                <p>Le problème est similaire à celui de l'étape précédente!</p>
+              </div>
+            </div>
+
+            <p><a class="btn btn-danger" data-toggle="collapse" href="#rep5a" role="button" aria-expanded="false" aria-controls="rep5a">Réponse</a></p>
+            <div class="collapse mb-3" id="rep5a">
+              <div class="card card-body">
+                <p>On doit bouger le centre après avoir dessiné chaque ligne. Sinon elles vont juste se superposer....</p>
+                <pre><code class="language-js">
+                  translate(0, 10);
+                </code></pre>
+              </div>
+            </div>
+
+            <p>Tu vais encore voir des problèmes... Tu ne vois toujours que une ligne, peut être le début de la deuxième mais à un endroit bizarre... C'est parce qu'on doit aussi se souvenir de remettre le centre en X à la droite!</p>
+
+            <pre><code class="language-js">
+              translate(-360, 0);
+            </code></pre>
+
+            <p>Tu pourrais combiner les deux <code>translate()</code> en un seul aussi!</p>
+
+            <pre><code class="language-js">
+              translate(-360, 10);
+            </code></pre>
+
+            <p>Tu devrais maitenant voir plein de boîtes qui oscillent!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etape 6 -->
+      <div class="card">
+        <div class="card-header" id="heading6">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+              Etape 6 - Le déphasage
+            </button>
+          </h2>
+        </div>
+        <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>En anglais, le déphasage s'appelle un "offset". On va donc utiliser ce mot pour désigner la quantité qu'on ajoute aux millisecondes pour créer l'effet de vague.</p>
+
+            <p>Tout d'abord, juste avant de dessiner ta boîte tu peux créer une variable <code>offset</code> et la mettre à ce que tu veux. On va un peu jouer avec cette variable plus tard.</p>
+
+            <pre><code class="language-js">
+              for(...) {
+                for(...) {
+                  let offset = 1;
+                  box(...);
+                  translate(...);
+                }
+                translate(...);
+              }
+            </code></pre>
+
+            <p>Plutôt que d'ajouter ce que tu ajoutais aux millisecondes plus tôt, tu peux maintenant ajouter la nouvelle variable <code>offset</code>.</p>
+
+            <pre><code class="language-js">
+              box(..., ..., ( sin( millis() / 1000 + offset) + 1 ) * 100 )
+            </code></pre>
+
+            <p>Tu vas alors voir que toutes tes boîtes oscillent avec la même phase. Pour changer cela, tu pourrais mettre <code>offset</code> à <code>l</code> ou <code>c</code>.</p>
+
+            <p>Voici une liste de formules qui donnent des résultats drôles:</p>
+
+            <ul>
+              <li>
+                <pre><code class="language-js">let offset = l + c</code></pre>
+              </li>
+              <li>
+                <pre><code class="language-js">let offset = l * c</code></pre>
+              </li>
+              <li>
+                <pre><code class="language-js">let offset = l ^ c</code></pre>
+              </li>
+              <li>
+                <pre><code class="language-js">let offset = (l ^ c) / 10</code></pre>
+              </li>
+              <li>
+                <pre><code class="language-js">let offset = i ^ ((j * j) / 100)</code></pre>
+              </li>
+            </ul>
+
+            <p>Essaie de trouver d'autres formules qui donnent des résultats drôles!</p>
+
+            <p>Si tu veux un résultat un peu plus ésthetique, tu peux utiliser la formule <code>let offset = (i + j) / 10</code>, elle te donnera une jolie vague!</p>
+
+            <p>La formule pour former la jolie animation que tu as vue au début est la suivante:</p>
+
+            <pre><code class="language-js">      
+              let offset = dist(l, c, 18, 18) / 5;
+            </code></pre>
+
+            <p>Voilà! J'espere que tu es content avec ton animation! Tu peux encore jouer un peu avec, essayer d'autres formules pour le déphasage, et essayer d'autres couleurs! </p>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+    </div> 
+  </div>
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
+    <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/3298561-faites-votre-mise-en-page-avec-flexbox#/id/r-3298711" rel="noopener noreferrer" target="_blank" class="alert-link copyright">
+      <i class="far fa-copyright"></i>
+      2020 Techies Lab ASBL. All rights reserved.
+    </a>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="javascript/prism.js"></script>
+</body>
+</html>
