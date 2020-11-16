@@ -72,13 +72,13 @@
 
             <p>Pour commencer, on doit adapter notre <code>createCanvcas()</code> en ajoutant <code>WEBGL</code> en tant que 3e paramètre. Ceci rajoute une "troisième dimension".</p>
 
-            <p>Ensuite on va créer une animation d'un rectangle dont la hauteur change constamment. Pour créer notre grande animation, on va simplement devoir repeter cette petite animation BEAUCOUP de fois.</p>
+            <p>Ensuite on va créer une animation d'une boîte dont la hauteur change constamment. Pour créer notre grande animation, on va simplement devoir repeter cette petite animation BEAUCOUP de fois.</p>
 
-            <p>Commence par dessiner un rectangle. Tu peux commencer par la faire 100x100x200. Utilise les fonctions <code>rotateX(), rotateY(), rotateZ()</code> avec des valeurs comme bons te sentent pour voir ce rectangle de coté.</p>
+            <p>Commence par dessiner une boîte. Tu peux commencer par la faire 100x100x200. Utilise les fonctions <code>rotateX(), rotateY(), rotateZ()</code> avec des valeurs comme bons te sentent pour voir cette boîte de coté.</p>
 
             <p>Super! Il nous faut maintenant juste faire changer la hauteur de ce cube avec le temps. La fois passée, on a introduit une variable <code>hauteur</code> et une variable <code>changement</code> pour y arriver, mais cela n'est en fait pas optimal! Pour ce que soit plus facile, on doit reconnaître un certain mouvement.</p>
 
-            <p>La hauteur du rectangle doit augementer, puis diminuer, puis augementer, puis diminuer, etc. Si on dessine la <i>fonction</i> de la hauteur en fonction du temps, on aurait quelque chose du style:</p>
+            <p>La hauteur de la boîte doit augementer, puis diminuer, puis augementer, puis diminuer, etc. Si on dessine la <i>fonction</i> de la hauteur en fonction du temps, on aurait quelque chose du style:</p>
 
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTDyplw8mPRz93XHPLRFNyYg-TKk-CXQLtmqw&usqp=CAU" alt="Sinus Curve" style="width: 100%">
 
@@ -122,7 +122,7 @@
 
             <p>Pour prendre le temps en p5.js, on utilise <code>millis()</code>. Comme son nom l'indique, il retourne le nombre de millisecondes depuis le début du code.</p>
 
-            <p>Essaie de remplacer les <code>...</code> par le nombre de millisecondes et remplace la hauteur de ton rectangle par l'équation d'avant. Est-ce que ça marche? Si la hauteur change trop vite, tu peux toujours diviser la hauteur par un certain nombre ;-) (Je te conseille de diviser par un nombre dans les alentours de 1000).</p>
+            <p>Essaie de remplacer les <code>...</code> par le nombre de millisecondes et remplace la hauteur de ta boîte par l'équation d'avant. Est-ce que ça marche? Si la hauteur change trop vite, tu peux toujours diviser la hauteur par un certain nombre ;-) (Je te conseille de diviser par un nombre dans les alentours de 1000).</p>
 
             <p><a class="btn btn-danger" data-toggle="collapse" href="#rep1c" role="button" aria-expanded="false" aria-controls="rep1c">Réponse</a></p>
             <div class="collapse mb-3" id="rep1c">
@@ -147,7 +147,7 @@
         </div>
         <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
           <div class="card-body">
-            <p>On va maintenant faire un autre rectangle à côté de ce premier. Notre but final sera d'en avoir énormement, mais on va commencer par en faire 2.</p>
+            <p>On va maintenant faire une autre boîte à côté de ce premier. Notre but final sera d'en avoir énormement, mais on va commencer par en faire 2.</p>
 
             <p>Pour le moment, si tout va bien, ton code ressemble à quelque chose dans ce style:</p>
 
@@ -167,12 +167,12 @@
 
             <p>J'ai ajouté un <code>normalMaterial()</code> pour la couleur.</p>
 
-            <p>Notre but est d'ajouter un autre rectangle. Comment ferais-tu cela? À mon avis, on doit mettre un autre <code>box()</code> après celui qu'on a déjà, cela devrait dessiner 2 boîtes non?</p>
+            <p>Notre but est d'ajouter une autre boîte. Comment ferais-tu cela? À mon avis, on doit mettre un autre <code>box()</code> après celui qu'on a déjà, cela devrait dessiner 2 boîtes non?</p>
 
             <p><a class="btn btn-danger" data-toggle="collapse" href="#rep2a" role="button" aria-expanded="false" aria-controls="rep2a">Réponse</a></p>
             <div class="collapse mb-3" id="rep2a">
               <div class="card card-body">
-                <p>Alors oui et non. Il faut en effet ajouter un deuxième <code>box()</code>, mais pas que. Il nous faut aussi dire au code de ne pas dessiner ce deuxième rectangle au dessus du premier! Pour ce faire, on peut simplement utiliser un <code>translate()</code>.</p>
+                <p>Alors oui et non. Il faut en effet ajouter un deuxième <code>box()</code>, mais pas que. Il nous faut aussi dire au code de ne pas dessiner cette deuxième boîte au dessus du premier! Pour ce faire, on peut simplement utiliser un <code>translate()</code>.</p>
                 <pre><code class="language-js">
                   box(...);
                   translate(100, 0);
@@ -239,9 +239,9 @@
               </div>
             </div>
 
-            <p>Super! On a maintenant une boucle qui se repete 36 fois... Mais que faut-il faire à l'intérieur? Il faut dessiner un rectangle à une nouvelle position à chaque fois! </p>
+            <p>Super! On a maintenant une boucle qui se repete 36 fois... Mais que faut-il faire à l'intérieur? Il faut dessiner une boîte à une nouvelle position à chaque fois! </p>
 
-            <p>Pour dessiner un rectangle qui oscille et qui a une taille 10x10, c'est super facile! On l'a déjà fait, je suis sûr que tu peux y arriver!</p>
+            <p>Pour dessiner une boîte qui oscille et qui a une taille 10x10, c'est super facile! On l'a déjà fait, je suis sûr que tu peux y arriver!</p>
 
             <p>On a toujours le problème qu'on ne doit pas oublier de faire un <code>translate()</code> après avoir dessiné une boîte. Ici, on ne veut que bouger de 10 dans l'axe X, et pas besoin de bouger dans l'axe Y. Ca aussi tu sais comment le faire ;-)</p>
 
